@@ -50,50 +50,6 @@
         <ul id="cart-items"></ul>
         <p>Total: $<span id="cart-total">0</span></p>
     </div>
-    <script>
-        const products = [
-            {id: 1, name: 'Shoes', price: 40},
-            {id: 2, name: 'Hat', price: 20},
-            {id: 3, name: 'Bag', price: 80}
-        ];
-
-        const cart = [];
-
-        function renderProducts() {
-            const productsDiv = document.getElementById('products');
-            productsDiv.innerHTML = '';
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.className = "product-card";
-                card.innerHTML = `
-                    <h2>${product.name}</h2>
-                    <strong>$${product.price}</strong><br>
-                    <button class="product-btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                `;
-                productsDiv.appendChild(card);
-            });
-        }
-
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
-            updateCart();
-        }
-
-        function updateCart() {
-            const cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = '';
-            let total = 0;
-            cart.forEach(item => {
-                total += item.price;
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - $${item.price}`;
-                cartItems.appendChild(li);
-            });
-            document.getElementById('cart-total').textContent = total;
-        }
-
-        window.onload = renderProducts;
-    </script>
+    
 </body>
 </html>
